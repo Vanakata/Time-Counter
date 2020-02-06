@@ -9,6 +9,7 @@ class TimerCounter extends React.Component {
             seconds: 0,
 
         }
+
         this.startCounting = this.startCounting.bind(this);
         this.stopCounting = this.stopCounting.bind(this);
     }
@@ -21,9 +22,11 @@ class TimerCounter extends React.Component {
         this.refs.start.setAttribute("disabled", "disabled");
         this.refs.pause.removeAttribute("disabled", "disabled");
 
+
         this.interval = setInterval(() => {
 
             if (this.state.seconds >= 0 && this.state.seconds < 59) {
+
                 this.setState({ seconds: this.state.seconds + 1 });
             } else {
 
@@ -54,6 +57,7 @@ class TimerCounter extends React.Component {
         clearInterval(this.interval);
 
     }
+
     render() {
 
         return (<div>
@@ -64,9 +68,9 @@ class TimerCounter extends React.Component {
                 <button ref="pause" onClick={this.stopCounting}>Pause</button>
             </div >
             <div>
-                <span>{this.state.hours}</span>:
-                <span>{this.state.minutes}</span>:
-                <span>{this.state.seconds}</span>
+                <span>{this.state.hours < 10 ? '0' + this.state.hours : this.state.hours}</span>:
+                <span>{this.state.minutes < 10 ? '0' + this.state.minutes : this.state.minutes}</span>:
+                <span>{this.state.seconds < 10 ? '0' + this.state.seconds : this.state.seconds}</span>
             </div>
         </div>)
     }

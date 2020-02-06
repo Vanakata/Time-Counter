@@ -10,11 +10,11 @@ class App extends Component {
 
     return (
       <div>
-        <span>Sport:</span><TimerCounter />
+        <span><strong>Sport:</strong></span><TimerCounter />
         <br/>
-        <span>Coding:</span><TimerCounter />
+        <span><strong>Coding:</strong></span><TimerCounter />
         <br/>
-        <span>Work:</span><TimerCounter />
+        <span><strong>Work:</strong></span><TimerCounter />
         <br/>
         <button onClick={this.reset}>Reset</button>
       </div>
