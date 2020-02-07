@@ -1,13 +1,14 @@
 import React from 'react';
+import Slider from '@farbenmeer/react-spring-slider';
 
 class TimerCounter extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            days: 0,
             hours: 0,
             minutes: 0,
             seconds: 0,
-
         }
 
         this.startCounting = this.startCounting.bind(this);
@@ -37,10 +38,18 @@ class TimerCounter extends React.Component {
                         minutes: this.state.minutes + 1
                     })
                 } else {
-                    this.setState({
-                        minutes: 0,
-                        hours: this.state.hours + 1
-                    })
+                    if (this.state.hours >= 0 && this.state.hours < 24) {
+
+                        this.setState({
+                            minutes: 0,
+                            hours: this.state.hours + 1
+                        })
+                    } else {
+                        this.setState({
+                            hours: 0,
+                            days: this.state.days + 1
+                        })
+                    }
                 }
             }
 
@@ -60,19 +69,32 @@ class TimerCounter extends React.Component {
 
     render() {
 
-        return (<div>
+        return (
+            
             <div>
-                <button ref="start" onClick={this.startCounting}>
-                    Start
-            </button>
-                <button ref="pause" onClick={this.stopCounting}>Pause</button>
-            </div >
-            <div>
-                <span>{this.state.hours < 10 ? '0' + this.state.hours : this.state.hours}</span>:
-                <span>{this.state.minutes < 10 ? '0' + this.state.minutes : this.state.minutes}</span>:
-                <span>{this.state.seconds < 10 ? '0' + this.state.seconds : this.state.seconds}</span>
+                <div className="cd-box">
+                    <p className="numbers days">{this.state.days < 10 ? '0' + this.state.days : this.state.days}</p>
+                    <p className="strings timeRefDays">Days:</p>
+                </div >
+                <div className="cd-box">
+                    <p className="numbers hours">{this.state.hours < 10 ? '0' + this.state.hours : this.state.hours}</p>
+                    <p className="strings timeRefHours">Hours:</p>
+                </div >
+                <div className="cd-box">
+                    <p className="numbers minutes">{this.state.minutes < 10 ? '0' + this.state.minutes : this.state.minutes}</p>
+                    <p className="strings timeRefMinutes">Minutes:</p>
+                </div>
+                <div className="cd-box">
+                    <p className="numbers seconds">{this.state.seconds < 10 ? '0' + this.state.seconds : this.state.seconds}</p>
+                    <p className="strings timeRefSeconds">Seconds:</p>
+                </div>
+                <div className="buttons">
+                    <button id="start" ref="start" onClick={this.startCounting}>Start</button>
+                    <button id="pause" ref="pause" onClick={this.stopCounting}>Pause</button>
+                </div>
             </div>
-        </div>)
+            
+        )
     }
 
 }
