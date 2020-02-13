@@ -1,5 +1,5 @@
 import React from 'react';
-import Slider from '@farbenmeer/react-spring-slider';
+
 
 class TimerCounter extends React.Component {
     constructor(props) {

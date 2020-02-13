@@ -50,14 +50,14 @@ header {
 }
 
 div.countdown {
-  color: #353535;
+  position: relative;
+  top:10em;
 }
 
 div.countdown p {
   width: 100%;
   display: inline-block;
   text-align: center;
-  
 }
 
 .numbers {
@@ -78,20 +78,19 @@ p.strings {
 }
 
 p.tasks {
-  
+  color: white;
   position: relative;
   right: 40%;
-  top: 30px;
+  top: 20px;
   font-size: 40px;
 }
 
 .buttons {
- background: #FFFFFF;
+  background-color: transparent;
   display: inline-block;
   position: relative;
-  left: 65%;
-  bottom: 420px;
-  
+  left: 60%;
+  bottom: 430px;
 }
 
 .buttons :hover {
@@ -100,9 +99,10 @@ p.tasks {
   cursor: pointer;
 }
 
-#start,#pause {
+#start, #pause {
   width: 150px;
-  height:50px;
+  height: 50px;
+  margin: 10px;
   border-radius: 10px;
 }
 
